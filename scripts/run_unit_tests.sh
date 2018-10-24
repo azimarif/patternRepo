@@ -1,0 +1,1 @@
+node ./test/patternLibraryTest.js

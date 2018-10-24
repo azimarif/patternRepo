@@ -30,22 +30,22 @@ function generateRectangle(shape, width, height) {
   let shapePattern = "";
   for (row = 1; row <= height; row++) {
     if (shape == "filled") {
-      shapePattern += starLine(height) + "\n";
+      shapePattern += starLine(width) + "\n";
     } else if (shape == "empty") {
       if (row == 1 || row == height) {
-        shapePattern += starLine(height) + "\n";
+        shapePattern += starLine(width) + "\n";
       } else {
-        shapePattern += emptyLine(height) + "\n";
+        shapePattern += emptyLine(width) + "\n";
       }
     } else {
       if (row % 2 == 0) {
-        shapePattern += dashLine(height) + "\n";
+        shapePattern += dashLine(width) + "\n";
       } else {
-        shapePattern += starLine(height) + "\n";
+        shapePattern += starLine(width) + "\n";
       }
     }
   }
-  return shapePattern;
+  return shapePattern.substr(0,shapePattern.length-1);
 }
 
 const generateTriangle = function(shape, lineLength) {
@@ -62,7 +62,7 @@ const generateTriangle = function(shape, lineLength) {
       shapePattern += rowSuffix + rowPrefix + "\n";
     }
   }
-  return shapePattern;
+  return shapePattern.substr(0, shapePattern.length-1);;
 }
 
 const repeatCharacter = function(lineLength, character) {
@@ -106,20 +106,24 @@ const lowerHalfDiamond = function(lineLength, firstChar, middleChar, lastChar) {
 }
 
 const filledDiamond = function(lineLength) {
+  lineLength = lineLength %2 == 0 ? lineLength -1 : lineLength;
   let pattern = "";
   pattern += upperHalfDiamond(lineLength, "*", "*", "*");
+ // console.log(pattern);
   pattern += lowerHalfDiamond(lineLength, "*", "*", "*");
-  return pattern;
+ return pattern.substr(0, pattern.length-1);
 }
 
 const hollowDiamond = function(lineLength) {
+  lineLength = lineLength %2 == 0 ? lineLength -1 : lineLength;
   let pattern = "";
   pattern += upperHalfDiamond(lineLength, "*", " ", "*");
   pattern += lowerHalfDiamond(lineLength, "*", " ", "*");
-  return pattern;
+  return pattern.substr(0, pattern.length-1);
 }
 
 const angledHollowDiamond = function(lineLength) {
+  lineLength = lineLength %2 == 0 ? lineLength -1 : lineLength;
   let pattern = "";
   for (let row = 1; row < Math.ceil(lineLength / 2); row++) {
     count = 2 * row - 1;
@@ -128,7 +132,7 @@ const angledHollowDiamond = function(lineLength) {
   }
   pattern += repeatSpacedChars(lineLength, "*", " ", "*") + "\n";
   pattern += lowerHalfDiamond(lineLength, "\\", " ", "/");
-  return pattern;
+  return pattern.substr(0,pattern.length-1);
 }
 
 module.exports = { generateRectangle, 
