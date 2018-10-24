@@ -1,4 +1,4 @@
-const {generateRectangle} = require('./src/rectangle.js');
+const {generateRectangle} = require('./src/patternLibrary.js');
 
 const main = function(){
   let shape = process.argv[2];

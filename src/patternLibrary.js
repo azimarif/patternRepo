@@ -1,3 +1,70 @@
+function starLine(length) {
+  let msg = "";
+  for (len = 1; len <= length; len++) {
+    msg += "*";
+  }
+  return msg;
+}
+
+function dashLine(length) {
+  let msg = "";
+  for (len = 1; len <= length; len++) {
+    msg += "-";
+  }
+  return msg;
+}
+
+function emptyLine(length) {
+  let msg = "";
+  for (len = 1; len <= length; len++) {
+    if (len == 1 || len == length) {
+      msg += "*";
+    } else {
+      msg += " ";
+    }
+  }
+  return msg;
+}
+
+function generateRectangle(shape, width, height) {
+  let shapePattern = "";
+  for (row = 1; row <= height; row++) {
+    if (shape == "filled") {
+      shapePattern += starLine(height) + "\n";
+    } else if (shape == "empty") {
+      if (row == 1 || row == height) {
+        shapePattern += starLine(height) + "\n";
+      } else {
+        shapePattern += emptyLine(height) + "\n";
+      }
+    } else {
+      if (row % 2 == 0) {
+        shapePattern += dashLine(height) + "\n";
+      } else {
+        shapePattern += starLine(height) + "\n";
+      }
+    }
+  }
+  return shapePattern;
+}
+
+const generateTriangle = function(shape, lineLength) {
+  let shapePattern = "";
+  for (let row = 0; row < lineLength; row++) {
+    let prefixCharacter = "*";
+    suffixCharacter = " ";
+
+    let rowPrefix = repeatCharacter(row + 1, prefixCharacter);
+    let rowSuffix = repeatCharacter(lineLength - row - 1, suffixCharacter);
+    if (shape == "left") {
+      shapePattern += rowPrefix + rowSuffix + "\n";
+    } else {
+      shapePattern += rowSuffix + rowPrefix + "\n";
+    }
+  }
+  return shapePattern;
+}
+
 const repeatCharacter = function(lineLength, character) {
   let text = "";
   for (let start = 1; start <= lineLength; start++) {
@@ -64,4 +131,9 @@ const angledHollowDiamond = function(lineLength) {
   return pattern;
 }
 
-module.exports = { filledDiamond, hollowDiamond, angledHollowDiamond }
+module.exports = { generateRectangle, 
+  generateTriangle, 
+  filledDiamond, 
+  hollowDiamond, 
+  angledHollowDiamond 
+}

@@ -1,4 +1,4 @@
-const {filledDiamond, hollowDiamond, angledHollowDiamond } = require("./src/diamond.js");
+const {filledDiamond, hollowDiamond, angledHollowDiamond } = require("./src/patternLibrary.js");
 
 const main = function(){
   let shape = process.argv[2];
