@@ -1,6 +1,3 @@
-let shape = process.argv[2];
-let lineLength = process.argv[3];
-
 const repeatCharacter = function(numberOfTimes, character) {
   let pattern = "";
   for (let start = 0; start < numberOfTimes; start++) {
@@ -26,4 +23,4 @@ const generateTriangle = function(shape, lineLength) {
   return shapePattern;
 }
 
-console.log(generateTriangle(shape, lineLength));
+module.exports = {generateTriangle }

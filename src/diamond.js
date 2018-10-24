@@ -64,18 +64,4 @@ const angledHollowDiamond = function(lineLength) {
   return pattern;
 }
 
-const main = function(){
-  let shape = process.argv[2];
-  let lineLength = +process.argv[3];
-  lineLength = lineLength % 2 == 0 ? lineLength - 1 : lineLength;
-
-  if (shape == "filled") {
-    console.log(filledDiamond(lineLength));
-  } else if (shape == "hollow") {
-    console.log(hollowDiamond(lineLength));
-  } else {
-    console.log(angledHollowDiamond(lineLength));
-  }
-}
-
-main();
+module.exports = { filledDiamond, hollowDiamond, angledHollowDiamond }
