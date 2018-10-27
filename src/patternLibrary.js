@@ -1,32 +1,13 @@
-function starLine(length) {
-  let msg = "";
-  for (len = 1; len <= length; len++) {
-    msg += "*";
-  }
-  return msg;
-}
+const {
+  starLine,
+  emptyLine,
+  repeatCharacter,
+  repeatSpacedChars,
+  upperHalfDiamond,
+  lowerHalfDiamond
+} = require('./patternUtilLibrary.js');
 
-function dashLine(length) {
-  let msg = "";
-  for (len = 1; len <= length; len++) {
-    msg += "-";
-  }
-  return msg;
-}
-
-function emptyLine(length) {
-  let msg = "";
-  for (len = 1; len <= length; len++) {
-    if (len == 1 || len == length) {
-      msg += "*";
-    } else {
-      msg += " ";
-    }
-  }
-  return msg;
-}
-
-function generateRectangle(shape, width, height) {
+const generateRectangle = function(shape, width, height) {
   let shapePattern = "";
   for (row = 1; row <= height; row++) {
     if (shape == "filled") {
@@ -65,51 +46,10 @@ const generateTriangle = function(shape, lineLength) {
   return shapePattern.substr(0, shapePattern.length-1);;
 }
 
-const repeatCharacter = function(lineLength, character) {
-  let text = "";
-  for (let start = 1; start <= lineLength; start++) {
-    text += character;
-  }
-  return text;
-}
-
-const repeatSpacedChars = function(lineLength, firstChar, middleChar, lastChar) {
-  let text = firstChar;
-  for (let start = 1; start <= lineLength - 2; start++) {
-    text += middleChar;
-  }
-  text += lastChar;
-  if (lineLength == 1) {
-    text = "*";
-  }
-  return text;
-}
-
-const upperHalfDiamond = function(lineLength, firstChar, middleChar, lastChar) {
-  let pattern = "";
-  for (let row = 1; row <= Math.ceil(lineLength / 2); row++) {
-    let count = 2 * row - 1;
-    let spaces = repeatCharacter((lineLength - count) / 2, " ");
-    pattern += spaces + repeatSpacedChars(count, firstChar, middleChar, lastChar) + spaces + "\n";
-  }
-  return pattern;
-}
-
-const lowerHalfDiamond = function(lineLength, firstChar, middleChar, lastChar) {
-  let pattern = "";
-  for (let row = Math.ceil(lineLength / 2) - 1; row > 0; row--) {
-    let count = 2 * row - 1;
-    let spaces = repeatCharacter((lineLength - count) / 2, " ");
-    pattern += spaces + repeatSpacedChars(count, firstChar, middleChar, lastChar) + spaces + "\n";
-  }
-  return pattern;
-}
-
 const filledDiamond = function(lineLength) {
   lineLength = lineLength %2 == 0 ? lineLength -1 : lineLength;
   let pattern = "";
   pattern += upperHalfDiamond(lineLength, "*", "*", "*");
- // console.log(pattern);
   pattern += lowerHalfDiamond(lineLength, "*", "*", "*");
  return pattern.substr(0, pattern.length-1);
 }
