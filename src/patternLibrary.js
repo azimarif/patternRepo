@@ -1,7 +1,5 @@
 const {
-  starLine,
   emptyLine,
-  dashLine,
   repeatCharacter,
   repeatSpacedChars,
   upperHalfDiamond,
@@ -13,18 +11,18 @@ const generateRectangle = function(patternDetail) {
   let shapePattern = "";
   for (row = 1; row <= height; row++) {
     if (shape == "filled") {
-      shapePattern += starLine(width) + "\n";
+      shapePattern += repeatCharacter(width, '*') + "\n";
     } else if (shape == "empty") {
       if (row == 1 || row == height) {
-        shapePattern += starLine(width) + "\n";
+        shapePattern += repeatCharacter(width, '*') +  "\n";
       } else {
         shapePattern += emptyLine(width) + "\n";
       }
     } else {
       if (row % 2 == 0) {
-        shapePattern += dashLine(width) + "\n";
+        shapePattern += repeatCharacter(width, '-') + "\n";
       } else {
-        shapePattern += starLine(width) + "\n";
+        shapePattern += repeatCharacter(width,'*') + "\n";
       }
     }
   }

@@ -1,7 +1,5 @@
 const {
   getPatternDetails,
-  starLine,
-  dashLine,
   emptyLine,
   repeatCharacter,
   repeatSpacedChars,
@@ -20,20 +18,6 @@ deepEqual(getPatternDetails([,, "hollow", "5", "3"]), { shape : "hollow", width 
 deepEqual(getPatternDetails([,, "angled", "5", "3"]), { shape : "angled", width : 5, height :3 });
 deepEqual(getPatternDetails([,, "alternating", "5", "3"]), { shape : "alternating", width : 5, height :3 });
 deepEqual(getPatternDetails([,, "empty", "5", "3"]), { shape : "empty", width : 5, height :3 });
-
-//Test for starLine
-equal(starLine(1), '*');
-equal(starLine(2), '**');
-equal(starLine(3), '***');
-equal(starLine(4), '****');
-equal(starLine(5), '*****');
-
-//Test for dashLine
-equal(dashLine(1), '-');
-equal(dashLine(2), '--');
-equal(dashLine(3), '---');
-equal(dashLine(4), '----');
-equal(dashLine(5), '-----');
 
 //Test case for empty line
 equal(emptyLine(1), '*');
