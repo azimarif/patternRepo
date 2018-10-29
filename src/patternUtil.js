@@ -1,3 +1,11 @@
+function getPatternDetails(userDetails){
+  return {
+    shape : userDetails[2],
+    width : +userDetails[3],
+    height : +userDetails[4]
+  }
+}
+
 function starLine(length) {
   let msg = "";
   for (len = 1; len <= length; len++) {
@@ -73,5 +81,6 @@ module.exports = {
   repeatCharacter,
   repeatSpacedChars,
   upperHalfDiamond,
-  lowerHalfDiamond
+  lowerHalfDiamond,
+  getPatternDetails
 }

@@ -1,13 +1,15 @@
 const {
   starLine,
   emptyLine,
+  dashLine,
   repeatCharacter,
   repeatSpacedChars,
   upperHalfDiamond,
   lowerHalfDiamond
-} = require('./patternUtilLibrary.js');
+} = require('./patternUtil.js');
 
-const generateRectangle = function(shape, width, height) {
+const generateRectangle = function(patternDetail) {
+  let { shape, width, height } = patternDetail;
   let shapePattern = "";
   for (row = 1; row <= height; row++) {
     if (shape == "filled") {
@@ -29,7 +31,9 @@ const generateRectangle = function(shape, width, height) {
   return shapePattern.substr(0,shapePattern.length-1);
 }
 
-const generateTriangle = function(shape, lineLength) {
+const generateTriangle = function(patternDetail) {
+  let shape  = patternDetail.shape;
+  let lineLength = patternDetail.width;
   let shapePattern = "";
   for (let row = 0; row < lineLength; row++) {
     let prefixCharacter = "*";
@@ -75,9 +79,14 @@ const angledHollowDiamond = function(lineLength) {
   return pattern.substr(0,pattern.length-1);
 }
 
-module.exports = { generateRectangle, 
+const generateDiamond = function(patternDetail){
+  let diamondType = { filled: filledDiamond, hollow : hollowDiamond, angled : angledHollowDiamond }
+  let {shape, width} = patternDetail;
+  return diamondType[shape](width);
+}
+
+module.exports = { 
+  generateRectangle, 
   generateTriangle, 
-  filledDiamond, 
-  hollowDiamond, 
-  angledHollowDiamond 
+  generateDiamond 
 }

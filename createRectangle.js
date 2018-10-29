@@ -1,10 +1,9 @@
 const {generateRectangle} = require('./src/patternLibrary.js');
+const {getPatternDetails} = require('./src/patternUtil.js');
 
 const main = function(){
-  let shape = process.argv[2];
-  let width = process.argv[3];
-  let height = process.argv[4];
-  console.log(generateRectangle(shape, width, height));
+  let patternDetails =  getPatternDetails(process.argv);
+  console.log(generateRectangle(patternDetails));
 }
 
 main();

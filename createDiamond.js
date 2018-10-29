@@ -1,16 +1,8 @@
-const {filledDiamond, hollowDiamond, angledHollowDiamond } = require("./src/patternLibrary.js");
+const { generateDiamond } = require("./src/patternLibrary.js");
+const {getPatternDetails} = require('./src/patternUtil.js');
 
 const main = function(){
-  let shape = process.argv[2];
-  let lineLength = +process.argv[3];
-
-  if (shape == "filled") {
-    console.log(filledDiamond(lineLength));
-  } else if (shape == "hollow") {
-    console.log(hollowDiamond(lineLength));
-  } else {
-    console.log(angledHollowDiamond(lineLength));
-  }
+  let patternDetail =  getPatternDetails(process.argv);
+  console.log(generateDiamond(patternDetail)); 
 }
-
 main();

@@ -1,8 +1,9 @@
 const {generateTriangle} = require('./src/patternLibrary.js');
+const {getPatternDetails} = require('./src/patternUtil.js');
+
 const main = function(){
-  let shape = process.argv[2];
-  let lineLength = process.argv[3];
-  console.log(generateTriangle(shape, lineLength));
+  let patternDetail=  getPatternDetails(process.argv);
+  console.log(generateTriangle(patternDetail));
 }
 
 main();
