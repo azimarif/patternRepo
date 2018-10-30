@@ -50,23 +50,39 @@ const generateRectangle = function(patternDetail) {
   return rectangles[shape](height, width);
 }
 
-const generateTriangle = function(patternDetail) {
-  let shape = patternDetail.shape;
-  let lineLength = patternDetail.width;
-  let shapePattern = "";
-  for (let row = 0; row < lineLength; row++) {
-    let prefixCharacter = "*";
-    suffixCharacter = " ";
-
+const createLeftTriangle = function(height) {
+  let prefixCharacter = "*";
+  let suffixCharacter = " ";
+  let shapePattern = [];
+  for (let row = 0; row < height; row++) {
     let rowPrefix = repeatCharacter(row + 1, prefixCharacter);
-    let rowSuffix = repeatCharacter(lineLength - row - 1, suffixCharacter);
-    if (shape == "left") {
-      shapePattern += rowPrefix + rowSuffix + "\n";
-    } else {
-      shapePattern += rowSuffix + rowPrefix + "\n";
-    }
+    let rowSuffix = repeatCharacter(height - row - 1, suffixCharacter);
+    shapePattern.push(rowPrefix + rowSuffix);
   }
-  return shapePattern.substr(0, shapePattern.length - 1);;
+  return shapePattern.join('\n');
+}
+
+const createRightTriangle = function(height) {
+  let prefixCharacter = "*";
+  let suffixCharacter = " ";
+  let shapePattern = [];
+  for (let row = 0; row < height; row++) {
+    let rowSuffix = repeatCharacter(row + 1, prefixCharacter);
+    let rowPrefix = repeatCharacter(height - row - 1, suffixCharacter);
+    shapePattern.push(rowPrefix + rowSuffix);
+  }
+  return shapePattern.join('\n');
+}
+
+const generateTriangle = function(patternDetail) {
+  let {
+    shape, width
+  } = patternDetail;
+  let triangle = {
+    left: createLeftTriangle,
+    right: createRightTriangle
+  };
+  return triangle[shape](width);
 }
 
 const filledDiamond = function(lineLength) {
@@ -114,6 +130,8 @@ module.exports = {
   createFilledRectangle,
   createEmptyRectangle,
   createAlternateRectangle,
+  createLeftTriangle,
+  createRightTriangle,
   generateRectangle,
   generateTriangle,
   generateDiamond

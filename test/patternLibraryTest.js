@@ -84,34 +84,40 @@ deepEqual(createAlternateRectangle(7, 20), pattern);
 //-----------------------TRIANGLE-----------------------------
 
 //Triangle pattern of left aligned with height 2
-deepEqual(generateTriangle({ shape : "left", width : 2} ), "* \n**");
-
-//Triangle pattern of left aligned with height 3
-deepEqual(generateTriangle({ shape : "left", width : 3} ), "*  \n** \n***");
-
-//Triangle pattern of left aligned with height 4
-deepEqual(generateTriangle({ shape : "left", width : 4} ), "*   \n**  \n*** \n****");
-
-//Triangle pattern of left aligned with height 5
-deepEqual(generateTriangle({ shape : "left", width : 5} ), "*    \n**   \n***  \n**** \n*****");
-
-//Triangle pattern of left aligned with height 6
-deepEqual(generateTriangle({ shape : "left", width : 6} ), "*     \n**    \n***   \n****  \n***** \n******");
+deepEqual(generateTriangle({
+  shape: "left",
+  width: 2
+}), "* \n**");
 
 //Triangle pattern of right aligned with height 2
-deepEqual(generateTriangle({ shape : "right", width : 2 } ), " *\n**");
+deepEqual(generateTriangle({
+  shape: "right",
+  width: 2
+}), " *\n**");
+
+//Triangle pattern of left aligned with height 3
+deepEqual(createLeftTriangle(3), "*  \n** \n***");
+
+//Triangle pattern of left aligned with height 4
+deepEqual(createLeftTriangle(4), "*   \n**  \n*** \n****");
+
+//Triangle pattern of left aligned with height 5
+deepEqual(createLeftTriangle(5), "*    \n**   \n***  \n**** \n*****");
+
+//Triangle pattern of left aligned with height 6
+deepEqual(createLeftTriangle(6), "*     \n**    \n***   \n****  \n***** \n******");
 
 //Triangle pattern of right aligned with height 3
-deepEqual(generateTriangle({ shape : "right", width : 3 } ), "  *\n **\n***");
+deepEqual(createRightTriangle(3), "  *\n **\n***");
 
 //Triangle patten of right aligned with height 4
-deepEqual(generateTriangle({ shape : "right", width : 4 } ), "   *\n  **\n ***\n****");
+deepEqual(createRightTriangle(4), "   *\n  **\n ***\n****");
 
 //Triangle pattern of right aligned with height 5
-deepEqual(generateTriangle({ shape : "right", width : 5 } ), "    *\n   **\n  ***\n ****\n*****");
+deepEqual(createRightTriangle(5), "    *\n   **\n  ***\n ****\n*****");
 
 //Triangle pattern of right aligned with height 6
-deepEqual(generateTriangle({ shape : "right", width : 6 } ), "     *\n    **\n   ***\n  ****\n *****\n******");
+deepEqual(createRightTriangle(6), "     *\n    **\n   ***\n  ****\n *****\n******");
 
 //Diamond pattern of filled type and height 3
 //console.log(filledDiamond(3));
