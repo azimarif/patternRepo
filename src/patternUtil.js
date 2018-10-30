@@ -1,8 +1,8 @@
 function getPatternDetails(userDetails){
   return {
-    shape : userDetails[2],
-    width : +userDetails[3],
-    height : +userDetails[4]
+    shape : userDetails[0],
+    width : +userDetails[1],
+    height : +userDetails[2]
   }
 }
 

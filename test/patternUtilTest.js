@@ -13,11 +13,11 @@ const {
 } = require('assert');
 
 //Test for getPatternDetails
-deepEqual(getPatternDetails([,, "filled", "5", "3"]), { shape : "filled", width : 5, height :3 });
-deepEqual(getPatternDetails([,, "hollow", "5", "3"]), { shape : "hollow", width : 5, height :3 });
-deepEqual(getPatternDetails([,, "angled", "5", "3"]), { shape : "angled", width : 5, height :3 });
-deepEqual(getPatternDetails([,, "alternating", "5", "3"]), { shape : "alternating", width : 5, height :3 });
-deepEqual(getPatternDetails([,, "empty", "5", "3"]), { shape : "empty", width : 5, height :3 });
+deepEqual(getPatternDetails(["filled", "5", "3"]), { shape : "filled", width : 5, height :3 });
+deepEqual(getPatternDetails(["hollow", "5", "3"]), { shape : "hollow", width : 5, height :3 });
+deepEqual(getPatternDetails(["angled", "5", "3"]), { shape : "angled", width : 5, height :3 });
+deepEqual(getPatternDetails(["alternating", "5", "3"]), { shape : "alternating", width : 5, height :3 });
+deepEqual(getPatternDetails(["empty", "5", "3"]), { shape : "empty", width : 5, height :3 });
 
 //Test case for empty line
 equal(emptyLine(1), '*');
