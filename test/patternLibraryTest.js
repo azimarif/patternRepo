@@ -119,44 +119,57 @@ deepEqual(createRightTriangle(5), "    *\n   **\n  ***\n ****\n*****");
 //Triangle pattern of right aligned with height 6
 deepEqual(createRightTriangle(6), "     *\n    **\n   ***\n  ****\n *****\n******");
 
+//-----------------------DIAMOND-----------------------------
+
 //Diamond pattern of filled type and height 3
-//console.log(filledDiamond(3));
-deepEqual(generateDiamond({shape : "filled", width : 3}), " * \n***\n * ");
-//Diamond patten of filled type and height 4
-deepEqual(generateDiamond({shape : "filled", width : 4}), " * \n***\n * ");
-//Diamond pattern of filled type and height 5
-deepEqual(generateDiamond({shape : "filled", width : 5}), "  *  \n *** \n*****\n *** \n  *  ");
-//Diamond pattern of filled type and height 6
-deepEqual(generateDiamond({shape : "filled", width : 6}), "  *  \n *** \n*****\n *** \n  *  ");
-//Daimond pattern of filled type and height 7
-deepEqual(generateDiamond({shape : "filled", width : 7}), "   *   \n  ***  \n ***** \n*******\n ***** \n  ***  \n   *   ");
-//Diamond pattern of filled type and height 8
-deepEqual(generateDiamond({shape : "filled", width : 8}), "   *   \n  ***  \n ***** \n*******\n ***** \n  ***  \n   *   ");
+deepEqual(generateDiamond({
+  shape: "filled",
+  width: 3
+}), " * \n***\n * ");
 
 //Diamond pattern of hollow type and height 3
-deepEqual(generateDiamond({shape : "hollow", width : 3}), " * \n* *\n * ");
-//Diamond patten of hollow type and height 4
-deepEqual(generateDiamond({shape : "hollow", width : 4}), " * \n* *\n * ");
-//Diamond pattern of hollow type and height 5
-deepEqual(generateDiamond({shape : "hollow", width : 5}), "  *  \n * * \n*   *\n * * \n  *  ");
-//Diamond pattern of hollow type and height 6
-deepEqual(generateDiamond({shape : "hollow", width : 6}), "  *  \n * * \n*   *\n * * \n  *  ");
-//Daimond pattern of hollow type and height 7
-deepEqual(generateDiamond({shape : "hollow", width : 7}), "   *   \n  * *  \n *   * \n*     *\n *   * \n  * *  \n   *   ");
-//Diamond pattern of hollow type and height 8
-deepEqual(generateDiamond({shape : "hollow", width : 8}), "   *   \n  * *  \n *   * \n*     *\n *   * \n  * *  \n   *   ");
+deepEqual(generateDiamond({
+  shape: "hollow",
+  width: 3
+}), " * \n* *\n * ");
 
 //Diamond pattern of angled type and height 3
-deepEqual(generateDiamond({shape : "angled", width : 3}), " * \n* *\n * ");
+deepEqual(generateDiamond({
+  shape: "angled",
+  width: 3
+}), " * \n* *\n * ");
+
+//Diamond patten of filled type and height 4
+deepEqual(createFilledDiamond(4), " * \n***\n * ");
+//Diamond pattern of filled type and height 5
+deepEqual(createFilledDiamond(5), "  *  \n *** \n*****\n *** \n  *  ");
+//Diamond pattern of filled type and height 6
+deepEqual(createFilledDiamond(6), "  *  \n *** \n*****\n *** \n  *  ");
+//Daimond pattern of filled type and height 7
+deepEqual(createFilledDiamond(7), "   *   \n  ***  \n ***** \n*******\n ***** \n  ***  \n   *   ");
+//Diamond pattern of filled type and height 8
+deepEqual(createFilledDiamond(8), "   *   \n  ***  \n ***** \n*******\n ***** \n  ***  \n   *   ");
+
+//Diamond patten of hollow type and height 4
+deepEqual(createHollowDiamond(4), " * \n* *\n * ");
+//Diamond pattern of hollow type and height 5
+deepEqual(createHollowDiamond(5), "  *  \n * * \n*   *\n * * \n  *  ");
+//Diamond pattern of hollow type and height 6
+deepEqual(createHollowDiamond(6), "  *  \n * * \n*   *\n * * \n  *  ");
+//Daimond pattern of hollow type and height 7
+deepEqual(createHollowDiamond(7), "   *   \n  * *  \n *   * \n*     *\n *   * \n  * *  \n   *   ");
+//Diamond pattern of hollow type and height 8
+deepEqual(createHollowDiamond(8), "   *   \n  * *  \n *   * \n*     *\n *   * \n  * *  \n   *   ");
+
 //Diamond patten of angled type and height 4
-deepEqual(generateDiamond({shape : "angled", width : 4}), " * \n* *\n * ");
+deepEqual(createAngledDiamond(4), " * \n* *\n * ");
 //Diamond pattern of angled type and height 5
-deepEqual(generateDiamond({shape : "angled", width : 5}), "  *  \n / \\ \n*   *\n \\ / \n  *  ");
+deepEqual(createAngledDiamond(5), "  *  \n / \\ \n*   *\n \\ / \n  *  ");
 //Diamond pattern of angled type and height 6
-deepEqual(generateDiamond({shape : "angled", width : 6}), "  *  \n / \\ \n*   *\n \\ / \n  *  ");
+deepEqual(createAngledDiamond(6), "  *  \n / \\ \n*   *\n \\ / \n  *  ");
 //Daimond pattern of angled type and height 7
-deepEqual(generateDiamond({shape : "angled", width : 7}), "   *   \n  / \\  \n /   \\ \n*     *\n \\   / \n  \\ /  \n   *   ");
+deepEqual(createAngledDiamond(7), "   *   \n  / \\  \n /   \\ \n*     *\n \\   / \n  \\ /  \n   *   ");
 //Diamond pattern of angled type and height 8
-deepEqual(generateDiamond({shape : "angled", width : 8}), "   *   \n  / \\  \n /   \\ \n*     *\n \\   / \n  \\ /  \n   *   ");
+deepEqual(createAngledDiamond(8), "   *   \n  / \\  \n /   \\ \n*     *\n \\   / \n  \\ /  \n   *   ");
 
 console.log("All tests passed");

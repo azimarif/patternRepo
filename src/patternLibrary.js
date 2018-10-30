@@ -85,7 +85,7 @@ const generateTriangle = function(patternDetail) {
   return triangle[shape](width);
 }
 
-const filledDiamond = function(lineLength) {
+const createFilledDiamond = function(lineLength) {
   lineLength = lineLength % 2 == 0 ? lineLength - 1 : lineLength;
   let pattern = "";
   pattern += upperHalfDiamond(lineLength, "*", "*", "*");
@@ -93,7 +93,7 @@ const filledDiamond = function(lineLength) {
   return pattern.substr(0, pattern.length - 1);
 }
 
-const hollowDiamond = function(lineLength) {
+const createHollowDiamond = function(lineLength) {
   lineLength = lineLength % 2 == 0 ? lineLength - 1 : lineLength;
   let pattern = "";
   pattern += upperHalfDiamond(lineLength, "*", " ", "*");
@@ -101,7 +101,7 @@ const hollowDiamond = function(lineLength) {
   return pattern.substr(0, pattern.length - 1);
 }
 
-const angledHollowDiamond = function(lineLength) {
+const createAngledDiamond = function(lineLength) {
   lineLength = lineLength % 2 == 0 ? lineLength - 1 : lineLength;
   let pattern = "";
   for (let row = 1; row < Math.ceil(lineLength / 2); row++) {
@@ -116,9 +116,9 @@ const angledHollowDiamond = function(lineLength) {
 
 const generateDiamond = function(patternDetail) {
   let diamondType = {
-    filled: filledDiamond,
-    hollow: hollowDiamond,
-    angled: angledHollowDiamond
+    filled: createFilledDiamond,
+    hollow: createHollowDiamond,
+    angled: createAngledDiamond
   }
   let {
     shape, width
@@ -132,6 +132,9 @@ module.exports = {
   createAlternateRectangle,
   createLeftTriangle,
   createRightTriangle,
+  createFilledDiamond,
+  createHollowDiamond,
+  createAngledDiamond,
   generateRectangle,
   generateTriangle,
   generateDiamond
