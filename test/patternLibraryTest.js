@@ -1,6 +1,14 @@
 const {
-  generateRectangle, 
-  generateTriangle, 
+  createFilledRectangle,
+  createEmptyRectangle,
+  createAlternateRectangle,
+  createLeftTriangle,
+  createRightTriangle,
+  createFilledDiamond,
+  createHollowDiamond,
+  createAngledDiamond,
+  generateRectangle,
+  generateTriangle,
   generateDiamond
 } = require('../src/patternLibrary.js');
 
@@ -8,58 +16,70 @@ const {
   deepEqual
 } = require('assert');
 
+//-----------------------RECTANGLE-----------------------------
+
+//Test cases for rectangle patterns
 let line = "********************";
 let pattern = [line, line, line, line, line, line, line].join("\n");
 let hline = "*                  *";
 
-//Test cases for rectangle patterns
-
-//Rectangle pattern test with the given input -> filled , wdth - 20 and height - 7
-deepEqual(generateRectangle({shape : "filled", width : 20, height : 7}), pattern);
-
 //Rectangle pattern test with the inputs "filled" , width - 1 and height - 2
-deepEqual(generateRectangle({shape : "filled", width : 1, height : 2}), "*\n*");
+deepEqual(generateRectangle({
+  shape: "filled",
+  width: 1,
+  height: 2
+}), "*\n*");
+
+//rectangle pattern test with the inputs "emmpty" width as 2 and height as 2
+deepEqual(generateRectangle({
+  shape: "empty",
+  width: 2,
+  height: 2
+}), "**\n**");
+
+deepEqual(generateRectangle({
+  shape: "alternating",
+  width: 2,
+  height: 2
+}), "**\n--");
 
 //rectangle pattern test with the inputs "filled" , width - 2 and height - 2
-deepEqual(generateRectangle({shape : "filled", width : 2, height : 2}), "**\n**");
+deepEqual(createFilledRectangle(2, 2), "**\n**");
 
 //rectangle pattern test with the inputs "filed" , width -1 and height -3
-deepEqual(generateRectangle({shape : "filled", width : 1, height : 3}), "*\n*\n*");
+deepEqual(createFilledRectangle(3, 1), "*\n*\n*");
 
 //rectangle pattern test with the inputs "filled" , width - 3 and height  -3
-deepEqual(generateRectangle({shape : "filled", width : 3, height : 3}), "***\n***\n***");
+deepEqual(createFilledRectangle(3, 3), "***\n***\n***");
 
 //rectangle pattern test with the inputs "filed", width - 4 and height -2
-deepEqual(generateRectangle({shape : "filled", width : 4, height : 2}), "****\n****");
-
-line = "********************";
-pattern = [line, hline, hline, hline, hline, hline, line].join("\n");
-//rectangle pattern test with the inputs "emmpty" width as 2 and height as 2
-deepEqual(generateRectangle({shape : "empty", width : 2,  height : 2}), "**\n**");
+deepEqual(createFilledRectangle(2, 4), "****\n****");
 
 //rectangle pattern test with the inputs "empty" width as 3 and height as 2
-deepEqual(generateRectangle({shape : "empty", width : 3,  height : 2}), "***\n***");
+deepEqual(createEmptyRectangle(2, 3), "***\n***");
 
 //rectangle pattern test with the inputs "empty"width as 3 and height as 3
-deepEqual(generateRectangle({shape : "empty", width : 3,  height : 3}), "***\n* *\n***");
+deepEqual(createEmptyRectangle(3, 3), "***\n* *\n***");
 
 //rectangle pattern test with the inputs "empty" width as 20 and height as 7
-deepEqual(generateRectangle({shape : "empty", width : 20, height : 7 }), pattern);
+line = "********************";
+pattern = [line, hline, hline, hline, hline, hline, line].join("\n");
+
+deepEqual(createEmptyRectangle(7, 20), pattern);
 
 line = "******************************";
 hline = "*                            *";
 pattern = [line, hline, hline, hline, hline, hline, hline, line].join("\n");
 
-deepEqual(generateRectangle({shape : "empty", width : 30, height :8}), pattern);
-deepEqual(generateRectangle({shape : "alternating", width : 2, height :2 }), "**\n--");
-deepEqual(generateRectangle({shape : "alternating", width : 3, height :2 }), "***\n---");
-deepEqual(generateRectangle({shape : "alternating", width : 3, height :3 }), "***\n---\n***");
-deepEqual(generateRectangle({shape : "alternating", width : 1, height :2 }), "*\n-");
+deepEqual(createEmptyRectangle(8, 30), pattern);
+deepEqual(createAlternateRectangle(2, 3), "***\n---");
+deepEqual(createAlternateRectangle(3, 3), "***\n---\n***");
+deepEqual(createAlternateRectangle(2, 1), "*\n-");
 
 line = "********************";
 hline = "--------------------";
 pattern = [line, hline, line, hline, line, hline, line].join("\n");
-deepEqual(generateRectangle({shape : "alternating", width : 20,height : 7 }), pattern);
+deepEqual(createAlternateRectangle(7, 20), pattern);
 
 //-----------------------TRIANGLE-----------------------------
 
